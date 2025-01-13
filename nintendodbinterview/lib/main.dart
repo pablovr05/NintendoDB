@@ -57,7 +57,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('NintendoDb'),
+        title: const Text(
+          'NintendoDb',
+        ),
+        centerTitle: true,
       ),
       body: isDataLoaded
           ? LayoutBuilder(

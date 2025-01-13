@@ -74,7 +74,7 @@ app.post('/api/personatges', async (req, res) => {
     }
 });
 
-app.post('/images/:imageName', async (req, res) => {
+app.get('/images/:imageName', async (req, res) => {
     try {
         const imagePath = `images/${req.params.imageName}`;
         res.sendFile(imagePath, { root: __dirname }, (err) => {
