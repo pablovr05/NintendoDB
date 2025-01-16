@@ -1,0 +1,142 @@
+[
+    {
+        "nom": "Pikachu",
+        "imatge": "character_pikachu.png",
+        "color": ["255", "215", "0", "255"],
+        "descripció": "Un Pokémon de tipo Eléctrico y Hada conocido por las descargas eléctricas que produce desde sus mejillas.",
+        "tipus": ["Eléctrico", "Hada"]
+    },
+    {
+        "nom": "Charizard",
+        "imatge": "character_charizard.png",
+        "color": ["255", "165", "0", "255"],
+        "descripció": "Un Pokémon de tipo Fuego y Volador que escupe llamas capaces de derretir cualquier cosa.",
+        "tipus": ["Fuego", "Volador"]
+    },
+    {
+        "nom": "Bulbasaur",
+        "imatge": "character_bulbasaur.png",
+        "color": ["0", "128", "0", "255"],
+        "descripció": "Un Pokémon de tipo Planta y Veneno que lleva una semilla en su espalda que crece con él.",
+        "tipus": ["Planta", "Veneno"]
+    },
+    {
+        "nom": "Squirtle",
+        "imatge": "character_squirtle.png",
+        "color": ["0", "0", "255", "255"],
+        "descripció": "Un Pokémon de tipo Agua y Hielo que utiliza su caparazón como defensa.",
+        "tipus": ["Agua", "Hielo"]
+    },
+    {
+        "nom": "Jigglypuff",
+        "imatge": "character_jigglypuff.png",
+        "color": ["255", "192", "203", "255"],
+        "descripció": "Un Pokémon de tipo Normal y Hada que usa su canto para dormir a sus oponentes.",
+        "tipus": ["Normal", "Hada"]
+    },
+    {
+        "nom": "Gengar",
+        "imatge": "character_gengar.png",
+        "color": ["128", "0", "128", "255"],
+        "descripció": "Un Pokémon de tipo Fantasma y Veneno que disfruta asustando a la gente.",
+        "tipus": ["Fantasma", "Veneno"]
+    },
+    {
+        "nom": "Eevee",
+        "imatge": "character_eevee.png",
+        "color": ["165", "42", "42", "255"],
+        "descripció": "Un Pokémon de tipo Normal y Hada con una increíble capacidad evolutiva.",
+        "tipus": ["Normal", "Hada"]
+    },
+    {
+        "nom": "Snorlax",
+        "imatge": "character_snorlax.png",
+        "color": ["0", "0", "255", "255"],
+        "descripció": "Un Pokémon de tipo Normal y Lucha que pasa la mayor parte del tiempo comiendo y durmiendo.",
+        "tipus": ["Normal", "Lucha"]
+    },
+    {
+        "nom": "Machamp",
+        "imatge": "character_machamp.png",
+        "color": ["128", "128", "128", "255"],
+        "descripció": "Un Pokémon de tipo Lucha y Roca conocido por su increíble fuerza física.",
+        "tipus": ["Lucha", "Roca"]
+    },
+    {
+        "nom": "Dragonite",
+        "imatge": "character_dragonite.png",
+        "color": ["255", "165", "0", "255"],
+        "descripció": "Un Pokémon de tipo Dragón y Volador que es amable y muy poderoso.",
+        "tipus": ["Dragón", "Volador"]
+    },
+    {
+        "nom": "Lucario",
+        "imatge": "character_lucario.png",
+        "color": ["0", "0", "255", "255"],
+        "descripció": "Un Pokémon de tipo Lucha y Acero que puede sentir las auras de los seres vivos.",
+        "tipus": ["Lucha", "Acero"]
+    },
+    {
+        "nom": "Togekiss",
+        "imatge": "character_togekiss.png",
+        "color": ["255", "255", "255", "255"],
+        "descripció": "Un Pokémon de tipo Hada y Volador que trae alegría y paz a los entrenadores.",
+        "tipus": ["Hada", "Volador"]
+    },
+    {
+        "nom": "Mimikyu",
+        "imatge": "character_mimikyu.png",
+        "color": ["255", "255", "0", "255"],
+        "descripció": "Un Pokémon de tipo Fantasma y Hada que se disfraza para ser querido.",
+        "tipus": ["Fantasma", "Hada"]
+    },
+    {
+        "nom": "Tyranitar",
+        "imatge": "character_tyranitar.png",
+        "color": ["0", "128", "0", "255"],
+        "descripció": "Un Pokémon de tipo Roca y Siniestro que puede causar terremotos al caminar.",
+        "tipus": ["Roca", "Siniestro"]
+    },
+    {
+        "nom": "Blaziken",
+        "imatge": "character_blaziken.png",
+        "color": ["255", "0", "0", "255"],
+        "descripció": "Un Pokémon de tipo Fuego y Lucha que ataca con poderosas patadas ardientes.",
+        "tipus": ["Fuego", "Lucha"]
+    },
+    {
+        "nom": "Gardevoir",
+        "imatge": "character_gardevoir.png",
+        "color": ["255", "255", "255", "255"],
+        "descripció": "Un Pokémon de tipo Psíquico y Hada que protege a su entrenador con sus poderes psíquicos.",
+        "tipus": ["Psíquico", "Hada"]
+    },
+    {
+        "nom": "Gallade",
+        "imatge": "character_gallade.png",
+        "color": ["0", "128", "0", "255"],
+        "descripció": "Un Pokémon de tipo Psíquico y Lucha con movimientos elegantes y precisos.",
+        "tipus": ["Psíquico", "Lucha"]
+    },
+    {
+        "nom": "Metagross",
+        "imatge": "character_metagross.png",
+        "color": ["0", "0", "255", "255"],
+        "descripció": "Un Pokémon de tipo Acero y Psíquico con un cerebro súper avanzado.",
+        "tipus": ["Acero", "Psíquico"]
+    },
+    {
+        "nom": "Swampert",
+        "imatge": "character_swampert.png",
+        "color": ["0", "0", "255", "255"],
+        "descripció": "Un Pokémon de tipo Agua y Tierra que puede nadar y excavar con facilidad.",
+        "tipus": ["Agua", "Tierra"]
+    },
+    {
+        "nom": "Sceptile",
+        "imatge": "character_sceptile.png",
+        "color": ["0", "128", "0", "255"],
+        "descripció": "Un Pokémon de tipo Planta y Dragón que corta árboles con sus afiladas hojas.",
+        "tipus": ["Planta", "Dragón"]
+    }
+]

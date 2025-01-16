@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
     await Future.wait([
       getData('jocs'),
       getData('consoles'),
-      getData('personatges'),
+      getData('pokemons'),
     ]);
     // Después de que los datos se carguen, actualizamos el estado para refrescar la UI
     setState(() {
@@ -61,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
           'NintendoDb',
         ),
         centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 159, 176, 255),
       ),
       body: isDataLoaded
           ? LayoutBuilder(
@@ -90,8 +91,8 @@ class _HomeScreenState extends State<HomeScreen> {
           DataStorage.setJocs(data); // Almacenar en la lista jocs
         } else if (type == 'consoles') {
           DataStorage.setConsoles(data); // Almacenar en la lista consoles
-        } else if (type == 'personatges') {
-          DataStorage.setPersonatges(data); // Almacenar en la lista personatges
+        } else if (type == 'pokemons') {
+          DataStorage.setpokemons(data); // Almacenar en la lista pokemons
         }
 
         print('Data fetched for $type: $data');

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'data_storage.dart'; // Asegúrate de que este archivo está correctamente implementado
+import 'data_storage.dart';
 
 class ViewDesktop extends StatefulWidget {
   const ViewDesktop({super.key});
@@ -9,25 +9,23 @@ class ViewDesktop extends StatefulWidget {
 }
 
 class _ViewDesktopState extends State<ViewDesktop> {
-  String? selectedCategory = 'Jocs'; // Categoría seleccionada
-  Map<String, dynamic> selectedItem =
-      {}; // Para almacenar el elemento seleccionado
+  String? selectedCategory = 'pokemons';
+  Map<String, dynamic> selectedItem = DataStorage.pokemons[0];
 
   List<dynamic> get currentList {
-    // Obtener la lista correspondiente a la categoría seleccionada
     if (selectedCategory == 'Jocs') {
       return DataStorage.jocs;
     } else if (selectedCategory == 'Consoles') {
       return DataStorage.consoles;
-    } else if (selectedCategory == 'Personatges') {
-      return DataStorage.personatges;
+    } else if (selectedCategory == 'pokemons') {
+      return DataStorage.pokemons;
     }
     return [];
   }
 
   void _onItemTap(dynamic item) {
     setState(() {
-      selectedItem = item; // Almacenar el elemento seleccionado
+      selectedItem = item;
     });
   }
 
@@ -36,15 +34,14 @@ class _ViewDesktopState extends State<ViewDesktop> {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          color: const Color.fromARGB(255, 255, 255, 255),
+          color: const Color.fromARGB(255, 219, 225, 255),
           child: Row(
             children: [
               Container(
-                width: 300, // Ancho fijo para la columna lateral
-                color: const Color.fromARGB(255, 241, 241, 241),
+                width: 300,
+                color: const Color.fromARGB(255, 200, 209, 254),
                 child: Column(
                   children: [
-                    // DropdownButton para seleccionar categoría
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: DropdownButton<String>(
@@ -52,10 +49,9 @@ class _ViewDesktopState extends State<ViewDesktop> {
                         icon: const Icon(Icons.arrow_downward_rounded),
                         value: selectedCategory,
                         hint: const Text('Selecciona una categoría'),
-                        items: ['Jocs', 'Consoles', 'Personatges']
+                        items: ['Jocs', 'Consoles', 'pokemons']
                             .map((String category) {
                           return DropdownMenuItem<String>(
-                            // Menú de categorías
                             value: category,
                             child: Text(category),
                           );
@@ -67,7 +63,6 @@ class _ViewDesktopState extends State<ViewDesktop> {
                         },
                       ),
                     ),
-                    // ListView para mostrar la lista actual
                     Expanded(
                       child: ListView.builder(
                         padding: const EdgeInsets.all(14.0),
@@ -75,21 +70,12 @@ class _ViewDesktopState extends State<ViewDesktop> {
                         itemBuilder: (context, index) {
                           final item = currentList[index];
                           return GestureDetector(
-                            // Detecta el toque en cada elemento
-                            onTap: () => _onItemTap(
-                                item), // Llama a la función cuando se toca
+                            onTap: () => _onItemTap(item),
                             child: Container(
                               margin: const EdgeInsets.only(
                                   bottom: 14.0, left: 4, top: 0, right: 0),
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: const Color.fromARGB(255, 0, 0, 0),
-                                  width: 1,
-                                ),
-                              ),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Image.network(
                                     'http://localhost:3000/images/${item["imatge"]}',
@@ -124,9 +110,7 @@ class _ViewDesktopState extends State<ViewDesktop> {
                                   Expanded(
                                     child: Text(
                                       item["nom"].toString(),
-                                      style: const TextStyle(
-                                        fontSize: 20,
-                                      ),
+                                      style: const TextStyle(fontSize: 20),
                                     ),
                                   ),
                                 ],
@@ -149,8 +133,8 @@ class _ViewDesktopState extends State<ViewDesktop> {
                             children: [
                               Image.network(
                                 'http://localhost:3000/images/${selectedItem["imatge"]}',
-                                width: 320,
-                                height: 320,
+                                width: 340,
+                                height: 340,
                                 loadingBuilder:
                                     (context, child, loadingProgress) {
                                   if (loadingProgress == null) {
@@ -177,17 +161,30 @@ class _ViewDesktopState extends State<ViewDesktop> {
                                 },
                               ),
                               const SizedBox(height: 20),
-                              Text('Nombre: ${selectedItem["nom"]}',
-                                  style: const TextStyle(fontSize: 20)),
-                              Text(
-                                  'Descripción: ${selectedItem["descripcion"]}',
-                                  style: const TextStyle(fontSize: 20)),
-                              // Aquí puedes agregar más detalles del elemento
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 30),
+                                child: Text(
+                                  'Nombre: ${selectedItem["nom"]}',
+                                  style: const TextStyle(fontSize: 20),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 240),
+                                child: Text(
+                                  'Descripción: ${selectedItem["descripció"]}',
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                      fontSize: 20, fontFamily: "Calibri"),
+                                ),
+                              ),
                             ],
                           )
                         : const Text(
                             'Selecciona un elemento para ver los detalles',
-                            style: TextStyle(fontSize: 20)),
+                            style: TextStyle(fontSize: 20),
+                          ),
                   ),
                 ),
               ),

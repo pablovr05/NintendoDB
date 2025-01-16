@@ -6,12 +6,12 @@ const port = 3000;
 
 const filePath0 = path.join(__dirname, 'data', 'consoles.json');
 const filePath1 = path.join(__dirname, 'data', 'jocs.json');
-const filePath2 = path.join(__dirname, 'data', 'personatges.json');
+const filePath2 = path.join(__dirname, 'data', 'pokemons.json');
 
 // Verificar si el archivo existe
 try {
     fs.access(filePath0);
-    console.log('El archivo jocs.json fue detectado.');
+    console.log('El archivo consoles.json fue detectado.');
 } catch (err) {
     console.error('El archivo no fue detectado:', err);
 }
@@ -27,7 +27,7 @@ try {
 // Verificar si el archivo existe
 try {
     fs.access(filePath2);
-    console.log('El archivo jocs.json fue detectado.');
+    console.log('El archivo pokemons.json fue detectado.');
 } catch (err) {
     console.error('El archivo no fue detectado:', err);
 }
@@ -62,15 +62,15 @@ app.post('/api/jocs', async (req, res) => {
     }
 });
 
-app.post('/api/personatges', async (req, res) => {
+app.post('/api/pokemons', async (req, res) => {
     try {
         // Leer el archivo jocs.json
         const data = await fs.readFile(filePath2, 'utf8');
         const jsonData = JSON.parse(data); // Convertir a objeto JSON
         res.json(jsonData); // Enviar JSON como respuesta
     } catch (error) {
-        console.error('Error leyendo el archivo personatges.json:', error);
-        res.status(500).send({ error: 'No se pudo leer el archivo personatges.json' });
+        console.error('Error leyendo el archivo pokemons.json:', error);
+        res.status(500).send({ error: 'No se pudo leer el archivo pokemons.json' });
     }
 });
 
