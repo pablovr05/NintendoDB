@@ -1,7 +1,8 @@
 [
     {
         "nom": "Nintendo Switch",
-        "data": "2017-3-3",
+        "descripció": "La Nintendo Switch es una consola híbrida que se puede usar tanto como consola de sobremesa como portátil.",
+        "data": "2017-03-03",
         "procesador": "4xARM Cortex-A57",
         "color": "black",
         "venudes": 70000000,
@@ -9,6 +10,7 @@
     },
     {
         "nom": "Wii U",
+        "descripció": "La Wii U es una consola de videojuegos de la séptima generación de Nintendo, sucesora de la Wii.",
         "data": "2012-11-18",
         "procesador": "IBM PowerPC 750",
         "color": "black",
@@ -17,6 +19,7 @@
     },
     {
         "nom": "Wii",
+        "descripció": "La Wii es una consola de videojuegos de séptima generación conocida por su control de movimiento.",
         "data": "2006-11-19",
         "procesador": "IBM PowerPC 750",
         "color": "white",
@@ -24,35 +27,39 @@
         "imatge": "nintendo_wii.png"
     },
     {
-        "nom": "GameCube",
-        "data": "2001-11-14",
-        "procesador": "IBM PowerPC Gekko",
-        "color": "purple",
-        "venudes": 22000000,
-        "imatge": "nintendo_gamecube.png"
-    },
-    {
         "nom": "Nintendo 64",
-        "data": "1996-6-23",
+        "descripció": "La Nintendo 64 fue la primera consola de Nintendo con gráficos en 3D reales.",
+        "data": "1996-06-23",
         "procesador": "NEC VR4300",
         "color": "black",
         "venudes": 33000000,
         "imatge": "nintendo_64.png"
     },
     {
-        "nom": "Super Nintendo",
-        "data": "1990-11-21",
-        "procesador": "Ricoh 5A22",
-        "color": "grey",
-        "venudes": 50000000,
-        "imatge": "nintendo_sn.png"
+        "nom": "Nintendo DS",
+        "descripció": "La Nintendo DS es una consola portátil con doble pantalla y pantalla táctil, revolucionaria en su tiempo.",
+        "data": "2004-11-21",
+        "procesador": "ARM946E-S",
+        "color": "silver",
+        "venudes": 154000000,
+        "imatge": "nintendo_ds.png"
     },
     {
-        "nom": "NES",
-        "data": "1983-6-15",
-        "procesador": "Ricoh 2A03",
-        "color": "white",
-        "venudes": 62000000,
-        "imatge": "nintendo_nes.png"
+        "nom": "Nintendo 3DS",
+        "descripció": "La Nintendo 3DS es una consola portátil que ofrece gráficos en 3D sin necesidad de gafas.",
+        "data": "2011-02-26",
+        "procesador": "ARM11 MPCore",
+        "color": "blue",
+        "venudes": 76000000,
+        "imatge": "nintendo_3ds.png"
+    },
+    {
+        "nom": "Nintendo Switch 2",
+        "descripció": "La Nintendo Switch 2 es la esperada sucesora de la Nintendo Switch, prometiendo mejor rendimiento y nuevas características.",
+        "data": "2025-03-01",
+        "procesador": "NVIDIA Tegra T239",
+        "color": "black",
+        "venudes": 0,
+        "imatge": "nintendo_switch2.png"
     }
 ]

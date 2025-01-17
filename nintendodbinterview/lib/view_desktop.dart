@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'data_storage.dart';
+import 'package:provider/provider.dart';
+import 'AppData.dart';
+import 'Consola.dart';
+import 'Joc.dart';
+import 'Pokemon.dart';
+import 'Squa.dart';
 
 class ViewDesktop extends StatefulWidget {
   const ViewDesktop({super.key});
@@ -9,37 +14,76 @@ class ViewDesktop extends StatefulWidget {
 }
 
 class _ViewDesktopState extends State<ViewDesktop> {
-  String? selectedCategory = 'pokemons';
-  Map<String, dynamic> selectedItem = DataStorage.pokemons[0];
+  String? selectedCategory = 'Pokemons';
+  dynamic selectedItem;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () {
+      final appData = Provider.of<AppData>(context, listen: false);
+      if (appData.pokemons.isNotEmpty) {
+        setState(() {
+          selectedItem = appData.pokemons[0];
+        });
+      }
+    });
+  }
+
+  dynamic _getItem(dynamic item) {
+    if (item is Joc) {
+      return item;
+    } else if (item is Consola) {
+      return item;
+    } else if (item is Pokemon) {
+      return item;
+    }
+    return null;
+  }
 
   List<dynamic> get currentList {
+    final appData = Provider.of<AppData>(context, listen: false);
     if (selectedCategory == 'Jocs') {
-      return DataStorage.jocs;
+      return appData.jocs;
     } else if (selectedCategory == 'Consoles') {
-      return DataStorage.consoles;
-    } else if (selectedCategory == 'pokemons') {
-      return DataStorage.pokemons;
+      return appData.consoles;
+    } else if (selectedCategory == 'Pokemons') {
+      return appData.pokemons;
     }
     return [];
   }
 
-  void _onItemTap(dynamic item) {
+  void _onCategoryChanged(String? newCategory) {
     setState(() {
-      selectedItem = item;
+      selectedCategory = newCategory;
+      final list = currentList;
+      selectedItem = list.isNotEmpty ? list[0] : null;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    // Colores predefinidos
+    const Color color1 = Colors.red; // Color del AppBar
+    const Color color2 = Colors.white; // Color de fondo general
+    const Color color3 = Colors.grey; // Color del panel lateral
+
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'NintendoDb',
+          ),
+          centerTitle: true,
+          backgroundColor: color1,
+        ),
         body: Container(
-          color: const Color.fromARGB(255, 219, 225, 255),
+          color: color2,
           child: Row(
             children: [
               Container(
                 width: 300,
-                color: const Color.fromARGB(255, 200, 209, 254),
+                color: color3,
                 child: Column(
                   children: [
                     Padding(
@@ -49,18 +93,14 @@ class _ViewDesktopState extends State<ViewDesktop> {
                         icon: const Icon(Icons.arrow_downward_rounded),
                         value: selectedCategory,
                         hint: const Text('Selecciona una categoría'),
-                        items: ['Jocs', 'Consoles', 'pokemons']
+                        items: ['Jocs', 'Consoles', 'Pokemons']
                             .map((String category) {
                           return DropdownMenuItem<String>(
                             value: category,
                             child: Text(category),
                           );
                         }).toList(),
-                        onChanged: (value) {
-                          setState(() {
-                            selectedCategory = value;
-                          });
-                        },
+                        onChanged: _onCategoryChanged,
                       ),
                     ),
                     Expanded(
@@ -70,7 +110,7 @@ class _ViewDesktopState extends State<ViewDesktop> {
                         itemBuilder: (context, index) {
                           final item = currentList[index];
                           return GestureDetector(
-                            onTap: () => _onItemTap(item),
+                            onTap: () => setState(() => selectedItem = item),
                             child: Container(
                               margin: const EdgeInsets.only(
                                   bottom: 14.0, left: 4, top: 0, right: 0),
@@ -78,7 +118,7 @@ class _ViewDesktopState extends State<ViewDesktop> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Image.network(
-                                    'http://localhost:3000/images/${item["imatge"]}',
+                                    'http://localhost:3000/images/${_getItem(item).imatge}',
                                     width: 40,
                                     height: 40,
                                     loadingBuilder:
@@ -109,8 +149,9 @@ class _ViewDesktopState extends State<ViewDesktop> {
                                   const SizedBox(width: 16.0),
                                   Expanded(
                                     child: Text(
-                                      item["nom"].toString(),
-                                      style: const TextStyle(fontSize: 20),
+                                      _getItem(item).nom,
+                                      style: const TextStyle(
+                                          fontSize: 20, fontFamily: "calibri"),
                                     ),
                                   ),
                                 ],
@@ -127,12 +168,12 @@ class _ViewDesktopState extends State<ViewDesktop> {
                 child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: selectedItem.isNotEmpty
+                    child: selectedItem != null
                         ? Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.network(
-                                'http://localhost:3000/images/${selectedItem["imatge"]}',
+                                'http://localhost:3000/images/${_getItem(selectedItem).imatge}',
                                 width: 340,
                                 height: 340,
                                 loadingBuilder:
@@ -165,7 +206,7 @@ class _ViewDesktopState extends State<ViewDesktop> {
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 30),
                                 child: Text(
-                                  'Nombre: ${selectedItem["nom"]}',
+                                  'Nombre: ${_getItem(selectedItem).nom}',
                                   style: const TextStyle(fontSize: 20),
                                 ),
                               ),
@@ -173,12 +214,43 @@ class _ViewDesktopState extends State<ViewDesktop> {
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 240),
                                 child: Text(
-                                  'Descripción: ${selectedItem["descripció"]}',
+                                  'Descripción: ${_getItem(selectedItem).getDescripcio}',
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
-                                      fontSize: 20, fontFamily: "Calibri"),
+                                      fontSize: 16, fontFamily: "Calibri"),
                                 ),
                               ),
+                              if (selectedItem is Pokemon)
+                                Squa(
+                                  color: Color.fromARGB(
+                                      selectedItem.color[3],
+                                      selectedItem.color[0],
+                                      selectedItem.color[1],
+                                      selectedItem.color[2]),
+                                )
+                              else if (selectedItem is Consola)
+                                Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(5),
+                                      child: Text(
+                                        'Unidades vendidas: ${selectedItem.venudes.toString()}',
+                                        style: const TextStyle(
+                                            fontSize: 16,
+                                            fontFamily: "Calibri"),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5),
+                                      child: Text(
+                                        'Fecha de lanzamiento: ${selectedItem.data.toString()}',
+                                        style: const TextStyle(
+                                            fontSize: 16,
+                                            fontFamily: "Calibri"),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                             ],
                           )
                         : const Text(

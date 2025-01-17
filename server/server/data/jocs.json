@@ -1,52 +1,62 @@
 [
     {
-    "nom": "Super Mario Bros",
-    "any": 1985,
-    "tipus": "Plataformes",
-    "descripcio": "Super Mario Bros. és un icònic joc de plataformes creat per Nintendo. El jugador assumeix el paper de Mario o Luigi, i ha de recórrer nivells plens d'enemics i obstacles per rescatar la princesa Peach del malvat Bowser.",
-    "imatge": "game_smb.png"
+        "nom": "Pokémon Red",
+        "any": 1996,
+        "descripció": "Captura y entrena Pokémon para convertirte en el mejor entrenador y completar la Pokédex.",
+        "imatge": "game_pred.png"
     },
     {
-    "nom": "The Legend of Zelda",
-    "any": 1986,
-    "tipus": "Acció-Aventura",
-    "descripcio": "The Legend of Zelda ofereix aventures èpiques amb un toc d'exploració i resolució de puzles. El jugador controla Link, un heroi que ha de derrotar a enemics, resoldre puzles i recórrer regnes per salvar la princesa Zelda i derrotar el mal.",
-    "imatge": "game_zelda.png"
+        "nom": "Pokémon Gold",
+        "any": 1999,
+        "descripció": "Explora Johto y descubre nuevos Pokémon mientras te enfrentas a nuevos retos y entrenadores.",
+        "imatge": "game_pgold.png"
     },
     {
-    "nom": "Pokémon Red i Blue",
-    "any": 1996,
-    "tipus": "RPG (Role-Playing Game)",
-    "descripcio": "Pokémon és una sèrie de jocs on els jugadors capturen i entrenen criatures conegudes com a Pokémon. L'objectiu és arribar a ser un Mestre Pokémon, derrotant altres entrenadors i completant la Pokèdex atrapant totes les diferents espècies de Pokémon.",
-    "imatge": "game_pred.jpeg"
+        "nom": "Pokémon Ruby",
+        "any": 2002,
+        "descripció": "Aventúrate en Hoenn y enfréntate a los equipos Aqua y Magma mientras descubres Pokémon legendarios.",
+        "imatge": "game_pruby.png"
     },
     {
-    "nom": "Mario Kart 64",
-    "any": 1996,
-    "tipus": "Carreres",
-    "descripcio": "Mario Kart és una sèrie de jocs de carreres amb personatges de l'univers de Mario. Els jugadors competeixen utilitzant diversos objectes i armes per guanyar avantatges i arribar primer a la línia de meta.",
-    "imatge": "game_smk.jpeg"
+        "nom": "Pokémon Diamond",
+        "any": 2006,
+        "descripció": "Explora Sinnoh y participa en nuevas aventuras con impresionantes gráficos y nuevos Pokémon.",
+        "imatge": "game_pdiamond.png"
     },
     {
-    "nom": "Metroid",
-    "any": 1986,
-    "tipus": "Acció-Aventura",
-    "descripcio": "Metroid és una sèrie que segueix les aventures de Samus Aran, una cazadora de recompenses espacial. Els jocs combinen elements d'exploració, acció i puzles, amb un focus en l'ambientació de ciència-ficció.",
-    "imatge": "game_metroid.jpeg"
+        "nom": "Pokémon Black",
+        "any": 2010,
+        "descripció": "Descubre la región de Unova y experimenta una historia más madura con nuevos Pokémon.",
+        "imatge": "game_pblack.png"
     },
     {
-    "nom": "Pikmin",
-    "any": 2001,
-    "tipus": "Estratègia",
-    "descripcio": "Pikmin és una sèrie de jocs d'estratègia on el jugador controla un astronauta anomenat Capità Olimar, que ha d'explorar un planeta desconegut i utilitzar criatures anomenades Pikmin per resoldre puzles i superar obstacles.",
-    "imatge": "game_pikmin.png"
+        "nom": "Pokémon X",
+        "any": 2013,
+        "descripció": "Explora la región de Kalos con gráficos en 3D y nuevas mecánicas como las megaevoluciones.",
+        "imatge": "game_pxy.png"
     },
     {
-    "nom": "Donkey Kong",
-    "any": 1981,
-    "tipus": "Plataformes",
-    "descripcio": "Donkey Kong és una franquícia de jocs de plataformes que va ser el debut del personatge Donkey Kong. Els jocs segueixen les aventures de Donkey Kong i altres personatges mentre es llancen a través de nivells plens d'acció i puzles.",
-    "imatge": "game_dk.png"
+        "nom": "Pokémon Sun",
+        "any": 2016,
+        "descripció": "Viaja a Alola y descubre nuevos Pokémon, formas regionales y desafíos insulares.",
+        "imatge": "game_psun.png"
+    },
+    {
+        "nom": "Pokémon Sword",
+        "any": 2019,
+        "descripció": "Explora Galar, enfréntate a nuevos rivales y experimenta la mecánica de Dynamax y Gigantamax.",
+        "imatge": "game_psword.png"
+    },
+    {
+        "nom": "Pokémon Arceus",
+        "any": 2022,
+        "descripció": "Viaja al pasado de Hisui y experimenta una nueva forma de capturar y entrenar Pokémon.",
+        "imatge": "game_plegends.png"
+    },
+    {
+        "nom": "Pokémon Scarlet",
+        "any": 2022,
+        "descripció": "Explora la región de Paldea en un mundo abierto mientras descubres nuevos Pokémon y desafíos.",
+        "imatge": "game_pscarlet.png"
     }
 ]
-  

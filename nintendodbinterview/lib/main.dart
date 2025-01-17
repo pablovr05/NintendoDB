@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'Consola.dart';
+import 'Joc.dart';
+import 'Pokemon.dart';
 import 'view_mobile.dart';
 import 'view_desktop.dart';
-import 'data_storage.dart';
+import 'package:provider/provider.dart';
+import 'AppData.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => AppData(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -43,9 +52,9 @@ class _HomeScreenState extends State<HomeScreen> {
   // Cargar los datos de forma asíncrona
   Future<void> _loadData() async {
     await Future.wait([
-      getData('jocs'),
-      getData('consoles'),
-      getData('pokemons'),
+      getData('Jocs'),
+      getData('Consoles'),
+      getData('Pokemons'),
     ]);
     // Después de que los datos se carguen, actualizamos el estado para refrescar la UI
     setState(() {
@@ -56,13 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'NintendoDb',
-        ),
-        centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 159, 176, 255),
-      ),
       body: isDataLoaded
           ? LayoutBuilder(
               builder: (context, constraints) {
@@ -86,18 +88,21 @@ class _HomeScreenState extends State<HomeScreen> {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
 
-        // Almacenar los datos según el tipo
-        if (type == 'jocs') {
-          DataStorage.setJocs(data); // Almacenar en la lista jocs
-        } else if (type == 'consoles') {
-          DataStorage.setConsoles(data); // Almacenar en la lista consoles
-        } else if (type == 'pokemons') {
-          DataStorage.setpokemons(data); // Almacenar en la lista pokemons
+        if (type == 'Jocs') {
+          final parsedJocs =
+              data.map<Joc>((item) => Joc.fromJson(item)).toList();
+          Provider.of<AppData>(context, listen: false).setJocs(parsedJocs);
+        } else if (type == 'Consoles') {
+          final parsedConsoles =
+              data.map<Consola>((item) => Consola.fromJson(item)).toList();
+          Provider.of<AppData>(context, listen: false)
+              .setConsoles(parsedConsoles);
+        } else if (type == 'Pokemons') {
+          final parsedPokemons =
+              data.map<Pokemon>((item) => Pokemon.fromJson(item)).toList();
+          Provider.of<AppData>(context, listen: false)
+              .setPokemons(parsedPokemons);
         }
-
-        print('Data fetched for $type: $data');
-      } else {
-        print('Error fetching data for $type: ${response.statusCode}');
       }
     } catch (error) {
       print('Error getting data: $error');
