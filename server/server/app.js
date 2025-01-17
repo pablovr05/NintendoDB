@@ -8,7 +8,6 @@ const filePath0 = path.join(__dirname, 'data', 'consoles.json');
 const filePath1 = path.join(__dirname, 'data', 'jocs.json');
 const filePath2 = path.join(__dirname, 'data', 'pokemons.json');
 
-// Verificar si el archivo existe
 try {
     fs.access(filePath0);
     console.log('El archivo consoles.json fue detectado.');
@@ -16,7 +15,6 @@ try {
     console.error('El archivo no fue detectado:', err);
 }
 
-// Verificar si el archivo existe
 try {
     fs.access(filePath1);
     console.log('El archivo jocs.json fue detectado.');
@@ -24,7 +22,6 @@ try {
     console.error('El archivo no fue detectado:', err);
 }
 
-// Verificar si el archivo existe
 try {
     fs.access(filePath2);
     console.log('El archivo pokemons.json fue detectado.');
@@ -40,10 +37,9 @@ app.get('/', async (req, res) => {
 
 app.post('/api/consoles', async (req, res) => {
     try {
-        // Leer el archivo jocs.json
         const data = await fs.readFile(filePath0, 'utf8');
-        const jsonData = JSON.parse(data); // Convertir a objeto JSON
-        res.json(jsonData); // Enviar JSON como respuesta
+        const jsonData = JSON.parse(data);
+        res.json(jsonData);
     } catch (error) {
         console.error('Error leyendo el archivo consoles.json:', error);
         res.status(500).send({ error: 'No se pudo leer el archivo consoles.json' });
@@ -52,10 +48,9 @@ app.post('/api/consoles', async (req, res) => {
 
 app.post('/api/jocs', async (req, res) => {
     try {
-        // Usar la ruta absoluta para leer el archivo
         const data = await fs.readFile(filePath1, 'utf8');
-        const jsonData = JSON.parse(data); // Convertir a objeto JSON
-        res.json(jsonData); // Enviar JSON como respuesta
+        const jsonData = JSON.parse(data);
+        res.json(jsonData);
     } catch (error) {
         console.error('Error leyendo el archivo jocs.json:', error);
         res.status(500).send({ error: 'No se pudo leer el archivo jocs.json' });
@@ -64,10 +59,9 @@ app.post('/api/jocs', async (req, res) => {
 
 app.post('/api/pokemons', async (req, res) => {
     try {
-        // Leer el archivo jocs.json
         const data = await fs.readFile(filePath2, 'utf8');
-        const jsonData = JSON.parse(data); // Convertir a objeto JSON
-        res.json(jsonData); // Enviar JSON como respuesta
+        const jsonData = JSON.parse(data);
+        res.json(jsonData);
     } catch (error) {
         console.error('Error leyendo el archivo pokemons.json:', error);
         res.status(500).send({ error: 'No se pudo leer el archivo pokemons.json' });

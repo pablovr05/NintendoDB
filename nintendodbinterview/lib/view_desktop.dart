@@ -63,7 +63,6 @@ class _ViewDesktopState extends State<ViewDesktop> {
 
   @override
   Widget build(BuildContext context) {
-    // Colores predefinidos
     const Color color1 = Colors.red; // Color del AppBar
     const Color color2 = Colors.white; // Color de fondo general
     const Color color3 = Colors.grey; // Color del panel lateral
@@ -72,7 +71,7 @@ class _ViewDesktopState extends State<ViewDesktop> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'NintendoDb',
+            'NintendoDb Desktop',
           ),
           centerTitle: true,
           backgroundColor: color1,

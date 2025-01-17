@@ -39,13 +39,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // Variable que indica si los datos ya se cargaron
   bool isDataLoaded = false;
 
   @override
   void initState() {
     super.initState();
-    // Cargar los datos en segundo plano cuando la pantalla se inicie
     _loadData();
   }
 
@@ -56,7 +54,6 @@ class _HomeScreenState extends State<HomeScreen> {
       getData('Consoles'),
       getData('Pokemons'),
     ]);
-    // Después de que los datos se carguen, actualizamos el estado para refrescar la UI
     setState(() {
       isDataLoaded = true;
     });
@@ -68,7 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
       body: isDataLoaded
           ? LayoutBuilder(
               builder: (context, constraints) {
-                // Mostrar la vista correspondiente según el tamaño de la pantalla
                 if (constraints.maxWidth > 450) {
                   return const ViewDesktop();
                 } else {
@@ -80,7 +76,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // Función para obtener los datos desde la API
   Future<void> getData(String type) async {
     try {
       final response =
