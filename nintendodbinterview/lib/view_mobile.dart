@@ -13,7 +13,7 @@ class ViewMobile extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Nintendodb Mobile'),
+          title: const Text('PokemonDb Mobile'),
           centerTitle: true,
           backgroundColor: color1,
         ),

@@ -71,7 +71,7 @@ class _ViewDesktopState extends State<ViewDesktop> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'NintendoDb Desktop',
+            'PokemonDb Desktop',
           ),
           centerTitle: true,
           backgroundColor: color1,
