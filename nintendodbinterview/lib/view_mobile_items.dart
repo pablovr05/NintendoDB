@@ -5,6 +5,7 @@ import 'AppData.dart';
 import 'Consola.dart';
 import 'Joc.dart';
 import 'Pokemon.dart';
+import 'view_mobile_item_specs.dart';
 
 class ViewMobileItems extends StatefulWidget {
   final String category;
@@ -32,7 +33,6 @@ class _ViewMobileItemsState extends State<ViewMobileItems> {
   Widget build(BuildContext context) {
     final appData = Provider.of<AppData>(context);
 
-    // Definir la lista según la categoría seleccionada
     List<dynamic> currentList = [];
     if (widget.category == 'Jocs') {
       currentList = appData.jocs;
@@ -43,7 +43,7 @@ class _ViewMobileItemsState extends State<ViewMobileItems> {
     }
 
     if (currentList.isNotEmpty && selectedItem == null) {
-      selectedItem = currentList[0]; // Tomamos el primer elemento por defecto
+      selectedItem = currentList[0];
     }
 
     return Scaffold(
@@ -53,64 +53,72 @@ class _ViewMobileItemsState extends State<ViewMobileItems> {
       ),
       body: Column(
         children: [
-          // Mostrar los elementos en una lista
           Expanded(
             child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: ListView.builder(
-                  itemCount: currentList.length,
-                  itemBuilder: (context, index) {
-                    final item = currentList[index];
-                    return GestureDetector(
-                        onTap: () => setState(() => selectedItem = item),
-                        child: Container(
-                          margin: const EdgeInsets.only(
-                              bottom: 14.0, left: 4, top: 0, right: 0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.network(
-                                'http://localhost:3000/images/${_getItem(item).imatge}',
-                                width: 40,
-                                height: 40,
-                                loadingBuilder:
-                                    (context, child, loadingProgress) {
-                                  if (loadingProgress == null) {
-                                    return child;
-                                  } else {
-                                    return Center(
-                                      child: CircularProgressIndicator(
-                                        value: loadingProgress
-                                                    .expectedTotalBytes !=
-                                                null
-                                            ? loadingProgress
-                                                    .cumulativeBytesLoaded /
-                                                (loadingProgress
-                                                        .expectedTotalBytes ??
-                                                    1)
-                                            : null,
-                                      ),
-                                    );
-                                  }
-                                },
-                                errorBuilder: (context, error, stackTrace) {
-                                  return const Text(
-                                      'Error al cargar la imagen');
-                                },
-                              ),
-                              const SizedBox(width: 16.0),
-                              Expanded(
-                                child: Text(
-                                  _getItem(item).nom,
-                                  style: const TextStyle(
-                                      fontSize: 20, fontFamily: "calibri"),
-                                ),
-                              ),
-                            ],
+              padding: const EdgeInsets.all(20),
+              child: ListView.builder(
+                itemCount: currentList.length,
+                itemBuilder: (context, index) {
+                  final item = currentList[index];
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                ViewMobileItemSpecs(item: item),
                           ),
-                        ));
-                  },
-                )),
+                        );
+                      });
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(
+                          bottom: 14.0, left: 4, top: 0, right: 0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.network(
+                            'http://localhost:3000/images/${_getItem(item).imatge}',
+                            width: 40,
+                            height: 40,
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) {
+                                return child;
+                              } else {
+                                return Center(
+                                  child: CircularProgressIndicator(
+                                    value: loadingProgress.expectedTotalBytes !=
+                                            null
+                                        ? loadingProgress
+                                                .cumulativeBytesLoaded /
+                                            (loadingProgress
+                                                    .expectedTotalBytes ??
+                                                1)
+                                        : null,
+                                  ),
+                                );
+                              }
+                            },
+                            errorBuilder: (context, error, stackTrace) {
+                              return const Text('Error al cargar la imagen');
+                            },
+                          ),
+                          const SizedBox(width: 16.0),
+                          Expanded(
+                            child: Text(
+                              _getItem(item).nom,
+                              style: const TextStyle(
+                                  fontSize: 20, fontFamily: "calibri"),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
         ],
       ),

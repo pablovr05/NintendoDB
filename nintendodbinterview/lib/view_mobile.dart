@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'view_mobile_items.dart'; // Importa la pantalla ViewMobileItems para navegación
+import 'view_mobile_items.dart';
 
 class ViewMobile extends StatelessWidget {
   const ViewMobile({super.key});
@@ -66,7 +66,6 @@ class ViewMobile extends StatelessWidget {
                     padding: const EdgeInsets.all(10),
                     child: TextButton(
                       onPressed: () {
-                        // Navegar a la pantalla de Consoles
                         Navigator.push(
                           context,
                           MaterialPageRoute(

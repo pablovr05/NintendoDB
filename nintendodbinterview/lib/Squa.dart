@@ -8,13 +8,13 @@ class Squa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 20), // Margen superior de 20px
+      margin: const EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
-        color: color, // Color de fondo del cuadrado
-        border: Border.all(color: Colors.black, width: 2), // Borde negro de 2px
+        color: color,
+        border: Border.all(color: Colors.black, width: 2),
       ),
-      width: 35, // Ancho del cuadrado
-      height: 35, // Alto del cuadrado
+      width: 35,
+      height: 35,
     );
   }
 }
