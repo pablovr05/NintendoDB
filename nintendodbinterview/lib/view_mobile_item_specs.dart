@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nintendodbinterview/Squa.dart';
-import 'package:provider/provider.dart';
-
-import 'AppData.dart';
 import 'Consola.dart';
-import 'Joc.dart';
 import 'Pokemon.dart';
 
 class ViewMobileItemSpecs extends StatelessWidget {
